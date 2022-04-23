@@ -3,122 +3,99 @@
 	import logo from './svelte-logo.svg';
 </script>
 
+
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about">About</a>
-			</li>
-			<li class:active={$page.url.pathname === '/todos'}>
-				<a sveltekit:prefetch href="/todos">Todos</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
-	</div>
+		  <!-- Main Sidebar Container -->
+		  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a href="#" class="brand-link">
+			  <span class="brand-text font-weight-light">Hệ Cơ Sở Dữ Liệu Phân Tán</span>
+			</a>
+		
+			<!-- Sidebar -->
+			<div class="sidebar">
+		
+			  <!-- SidebarSearch Form -->
+			  <div class="form-inline">
+				<div class="input-group" data-widget="sidebar-search">
+				  <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+				  <div class="input-group-append">
+					<button class="btn btn-sidebar">
+					  <i class="fas fa-search fa-fw"></i>
+					</button>
+				  </div>
+				</div>
+			  </div>
+		
+			  <!-- Sidebar Menu -->
+			  <nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				  <!-- Add icons to the links using the .nav-icon class
+					   with font-awesome or any other icon font library -->
+				  <li class="nav-item">
+					<a href="/quan-ly-ve" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý vé
+					  </p>
+					</a>
+				  </li>
+				  <li class="nav-item">
+					<a href="/quan-ly-khach-hang" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý khách hàng
+					  </p>
+					</a>
+				  </li>
+				  <li class="nav-item">
+					<a href="/quan-ly-chuyen-bay" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý chuyến bay
+					  </p>
+					</a>
+				  </li>
+				  <li class="nav-item">
+					<a href="/quan-ly-may-bay" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý máy bay
+					  </p>
+					</a>
+				  </li>
+				  <li class="nav-item">
+					<a href="/quan-ly-san-bay" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý sân bay
+					  </p>
+					</a>
+				  </li>
+				  <li class="nav-item">
+					<a href="/quan-ly-nhan-vien" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý nhân viên
+					  </p>
+					</a>
+				  </li>
+				  <li class="nav-item">
+					<a href="/quan-ly-don-vi-ban" class="nav-link">
+					  <i class="nav-icon fas fa-table"></i>
+					  <p>
+						Quản lý đơn vị bán
+					  </p>
+					</a>
+				  </li>
+				</ul>
+			  </nav>
+			  <!-- /.sidebar-menu -->
+			</div>
+			<!-- /.sidebar -->
+		  </aside>
 </header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--accent-color);
-	}
 </style>

@@ -9,7 +9,11 @@ const config = {
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE']
 		}
+	},
+	files: {
+		assets: 'static'
 	}
+
 };
 
 export default config;
