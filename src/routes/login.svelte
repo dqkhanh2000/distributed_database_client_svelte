@@ -3,8 +3,27 @@
 </script>
 
 <script>
-function test(params) {
-  console.log("adasdasd");
+  let username = "";
+  let password = "";
+  let server = 0;
+async function test() {
+  let url = `${import.meta.env.VITE_HOST_API}/login`;
+  let body = JSON.stringify({
+				username,
+        password,
+        server
+			})
+  const res = await fetch(url, {
+    headers: {
+      "Access-Control-Allow-ORigin": "*",
+    },
+			method: 'POST',
+			body: body,
+		})
+		
+		const json = await res.json()
+		let result = JSON.stringify(json)
+    console.log(result);
 }
 </script>
 
@@ -18,42 +37,35 @@ function test(params) {
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <div class="form-horizontal" action="http://192.168.1.243:3000/login" method="post">
+                <div class="form-horizontal">
                   <div class="card-body">
                     <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
                       <div class="col-sm-10">
-                        <input type="text" name="username" class="form-control" id="inputEmail3" placeholder="Username">
+                        <input type="text" on:input="{(e)=> {username = e.target.value}}" name="username" class="form-control" id="inputEmail3" placeholder="Username">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
                       <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        <input type="password" on:input="{(e)=> {password = e.target.value}}" name="password" class="form-control" id="inputPassword3" placeholder="Password">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <div class="offset-sm-2 col-sm-10">
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                          <label class="form-check-label" for="exampleCheck2">Remember me</label>
-                        </div>
-                      </div>
-                    </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="server" value="1" id="flexRadioDefault1">
+                      <input class="form-check-input"  bind:group={server} type="radio" name="server" value="1" id="flexRadioDefault1">
                       <label class="form-check-label" for="flexRadioDefault1">
                         Đơn vị 1
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="server" value="2" id="flexRadioDefault2" checked>
+                      <input class="form-check-input" bind:group={server} type="radio" name="server" value="2" id="flexRadioDefault2" checked>
                       <label class="form-check-label" for="flexRadioDefault2">
                         Đơn vị 2
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="server" value="3" id="flexRadioDefault2" checked>
+                      <input class="form-check-input" type="radio" bind:group={server} name="server" value="3" id="flexRadioDefault2" checked>
                       <label class="form-check-label" for="flexRadioDefault2">
                         Đơn vị 3
                       </label>
@@ -62,7 +74,7 @@ function test(params) {
                   
                   <!-- /.card-body -->
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-info" on:click="{test}">Sign in</button>    
+                    <button type="submit" class="btn btn-info" on:click={test}>Sign in</button>    
                     <button type="submit" class="btn btn-default float-right">Cancel</button>
                   </div>
                   <!-- /.card-footer -->
