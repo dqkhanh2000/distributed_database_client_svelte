@@ -8,22 +8,29 @@
   let server = 0;
 async function test() {
   let url = `${import.meta.env.VITE_HOST_API}/login`;
-  let body = JSON.stringify({
-				username,
-        password,
-        server
+  console.log(url);
+  let body = new URLSearchParams({
+				'username': username,
+        'password': password,
+        'server' : ''+server,
 			})
-  const res = await fetch(url, {
-    headers: {
-      "Access-Control-Allow-ORigin": "*",
-    },
-			method: 'POST',
-			body: body,
-		})
+    fetch(url, {
+      headers: {        
+        'Accept': '*/*',
+        'Content-Type': 'application/X-www-form-urlencoded'
+        },
+        mode: "cors",
+        cache: 'default',
+        method: 'POST',
+        body,
+      })
+      .then(res => {
+        const json = res.json()
+        let result = JSON.stringify(json)
+        console.log(result);
+      })
 		
-		const json = await res.json()
-		let result = JSON.stringify(json)
-    console.log(result);
+		
 }
 </script>
 
