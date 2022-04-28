@@ -10,7 +10,7 @@
     let manv = localStorage.getItem("idnv") !== undefined ? JSON.stringify(localStorage.getItem("idnv")) : "";
     let server =  localStorage.getItem("server") !== undefined ? JSON.stringify( localStorage.getItem("server")) : "";
     let nameTable = "KhachHang";
-    let url = `${import.meta.env.VITE_HOST_API}/table/${nameTable}`;
+    let url = `http://192.168.31.74:8000/table/${nameTable}`;
     let body = new URLSearchParams({
       'MaNhanVien' : manv,
       'server': server,

@@ -10,12 +10,13 @@
   let server = 0;
 async function login() {
   let url = `${import.meta.env.VITE_HOST_API}/login`;
+  
   let body = new URLSearchParams({
 				'username': username,
         'password': password,
         'server' : ''+server,
 			})
-    const res = await fetch(url, {
+    const res = await fetch('http://192.168.31.74:8000/login', {
       headers: {        
         'Accept': '*/*',
         'Content-Type': 'application/X-www-form-urlencoded'
