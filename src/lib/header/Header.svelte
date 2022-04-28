@@ -80,14 +80,14 @@
 					  </p>
 					</a>
 				  </li>
-				  <li class="nav-item">
+				  <!-- <li class="nav-item">
 					<a href="/quan-ly-don-vi-ban" class="nav-link">
 					  <i class="nav-icon fas fa-table"></i>
 					  <p>
 						Quản lý đơn vị bán
 					  </p>
 					</a>
-				  </li>
+				  </li> -->
 				</ul>
 			  </nav>
 			  <!-- /.sidebar-menu -->

@@ -16,7 +16,7 @@ async function login() {
         'password': password,
         'server' : ''+server,
 			})
-    const res = await fetch('http://192.168.31.74:8000/login', {
+    const res = await fetch(url, {
       headers: {        
         'Accept': '*/*',
         'Content-Type': 'application/X-www-form-urlencoded'
