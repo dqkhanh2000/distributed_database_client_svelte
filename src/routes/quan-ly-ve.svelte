@@ -79,8 +79,6 @@
       else {
         alert("Thêm vé thất bại")
       }
-     
-     
   }
 
 
